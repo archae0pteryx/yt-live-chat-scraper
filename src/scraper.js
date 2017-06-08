@@ -12,9 +12,11 @@ casper.start()
 casper.userAgent(ua);
 casper.thenOpen(url, function () {
   this.echo("starting...")
+  this.echo("Need to wait 10s for chat renderer to kick in...")
   this.wait(10000, function () {
     casper.capture('screen-capture.png')
-    this.echo('Waited 10s')
+    this.echo('...waited')
+    this.echo('Captured Screen.')
   })
 })
 
@@ -39,6 +41,8 @@ var currentMessage = '';
     if (currentMessage !== post.message) {
       currentMessage = post.message;
       this.echo(post.author + ' - ' + post.message);
+    } else if (post.message === null) {
+      return
     }
   });
 
