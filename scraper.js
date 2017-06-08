@@ -5,11 +5,16 @@ var casper = require("casper").create({
   }
 });
 
-url = 'https://www.youtube.com/watch?v=EA5QV4tLtLE'
+url = 'https://www.youtube.com/live_chat?continuation=0ofMyAMkGiBDZzhLRFFvTFJVRTFVVlkwZEV4MFRFVWdBUSUzRCUzRDAB'
 ua = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'
 
-casper.start(url)
+casper.start()
 casper.userAgent(ua);
+casper.thenOpen(url, function () {
+  this.echo("starting...")
+  this.wait(10000, function () {
+  })
+})
 
 var currentMessage = '';
 
