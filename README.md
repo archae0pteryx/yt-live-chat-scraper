@@ -1,4 +1,4 @@
-## YouTube Live chat scraper (Part 1)
+## YouTube Live chat scraper w/ Casperjs
 
 With Yarn (for npm use ```npm``` instead of ```yarn```)
 
