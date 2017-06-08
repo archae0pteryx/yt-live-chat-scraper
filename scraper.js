@@ -1,13 +1,15 @@
 var casper = require("casper").create({
   viewportSize: {
-    width: 1080,
-    height: 724
+    width: 1024,
+    height: 768
   }
 });
 
-casper.userAgent('Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0');
+url = 'https://www.youtube.com/watch?v=EA5QV4tLtLE'
+ua = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'
 
-casper.start('https://www.youtube.com/watch?v=EA5QV4tLtLE');
+casper.start(url)
+casper.userAgent(ua);
 
 var currentMessage = '';
 
