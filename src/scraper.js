@@ -13,7 +13,7 @@ casper.userAgent(ua);
 casper.thenOpen(url, function () {
   this.echo("starting...")
   this.wait(10000, function () {
-    casper.capture('test-image.png')
+    casper.capture('screen-capture.png')
     this.echo('Waited 10s')
   })
 })
