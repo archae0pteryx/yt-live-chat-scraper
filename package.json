@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "casper": "^0.1.1",
+    "casperjs": "^1.1.4",
+    "jquery": "^3.2.1"
+  },
+  "scripts": {
+    "start": "casperjs scraper.js"
+  }
+}
