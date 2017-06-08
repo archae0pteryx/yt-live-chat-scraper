@@ -1,3 +1,5 @@
+var colorizer = require('colorizer').create('Colorizer');
+
 var casper = require("casper").create({
   viewportSize: {
     width: 1024,
@@ -5,14 +7,14 @@ var casper = require("casper").create({
   }
 });
 
-url = 'https://www.youtube.com/live_chat?v=tlCsioWTZxs&is_popout=1'
+url = 'https://www.youtube.com/live_chat?v=7azsl4iguoU&is_popout=1'
 ua = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'
 
 casper.start()
 casper.userAgent(ua);
 casper.thenOpen(url, function () {
-  this.echo("starting...")
-  this.echo("Need to wait 10s for chat renderer to kick in...")
+  this.echo("Starting...", 'INFO')
+  this.echo("Waiting 10s", 'INFO')
   this.wait(10000, function () {
     casper.capture('screen-capture.png')
     this.echo('...waited')
@@ -38,12 +40,13 @@ var currentMessage = '';
   });
 
   casper.then(function () {
-    if (currentMessage !== post.message) {
-      currentMessage = post.message;
-      this.echo(post.author + ' - ' + post.message);
-    } else if (post.message === null) {
+    if (post === null) {
+      this.echo("Error with message", 'WARNING')
       return
-    }
+    } else if (currentMessage !== post.message) {
+      currentMessage = post.message;
+      this.echo(colorizer.colorize(post.author, 'WARNING') + ' ' + colorizer.colorize(post.message, 'COMMENT'))
+    } 
   });
 
   casper.then(function () {
