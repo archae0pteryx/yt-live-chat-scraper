@@ -3,7 +3,7 @@
     "casperjs": "^1.1.4",
     "colors": "^1.1.2",
     "jquery": "^3.2.1",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.21"
   },
   "scripts": {
     "start": "node_modules/casperjs/bin/casperjs --ignore-ssl-errors=true src/scraper.js",
